@@ -1,0 +1,42 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav>
+        <app-menu (selectedPage)="changePage($event)" [currentPage]="page" (onCloseSidenav)="onClose($event, sidenav)"
+            [loggedUser]="loggedUser" (onLogout)="logout($event)"></app-menu>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-sm="true">
+                <button mat-icon-button (click)="onToogleSidenav(sidenav)">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>
+                TITKOK KONYHÁJA
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-md="true">
+                <ul fxLayout fxLayoutGap="10px" class="nav_bar">
+                    <li *ngIf="!(loggedUser)">
+                        <a routerLink="/login">Bejelentkezés</a>
+                    </li>
+                    <li *ngIf="(loggedUser)">
+                        <a routerLink="/main" (click)="logout()">Kilépés</a>
+                    </li>
+                    <li *ngIf="!(loggedUser)">
+                        <a routerLink="/signup">Regisztráció</a>
+                    </li>
+                    <li>
+                        <a routerLink="/main">Főoldal</a>
+                    </li>
+                    <li>
+                        <a routerLink="/recipes">Receptek</a>
+                    </li>
+                    <li>
+                        <a routerLink="/contact">Kapcsolat</a>
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

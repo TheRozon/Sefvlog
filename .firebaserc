@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sefvlog-b7d35": {
+      "hosting": {
+        "sef-vlog": [
+          "sefvlog-b7d35"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sefvlog-b7d35"
+  }
+}

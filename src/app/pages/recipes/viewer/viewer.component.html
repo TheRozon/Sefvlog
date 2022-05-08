@@ -1,0 +1,72 @@
+<div class="container card" *ngIf="imageInput">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{imageInput.name}}
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div>
+                <a href="{{imageInput.video_url}}" target="blank" (click)="clickImage()"><img class="recipesImage"
+                        [src]="loadedImage"
+                        [ngClass]=" clickedImage === true ? 'image-border-click' : 'image-border-noclick'" /></a>
+            </div>
+            <div class="break"></div>
+            <div>{{imageInput.name}}</div>
+            <div class="break"></div>
+            <div><span>Elkészítési idő: </span>{{imageInput.prep_time}}</div>
+            <div class="break"></div>
+            <div><span>A videó eléréséhez kattints a képre, vagy </span><a href="{{imageInput.video_url}}"
+                    target="blank"><span>IDE!</span></a>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>
+<div class="container main_component">
+    <mat-card>
+        <mat-card-actions>
+            <div class="break"></div>
+            <form [formGroup]="commentsForm" (ngSubmit)="addComment()">
+                <div>
+                    <mat-form-field>
+                        <mat-label for="comment">Komment helye</mat-label>
+                        <textarea matInput rows="10" cols="90" formControlName="comment"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="break"></div>
+                <div class="buttons">
+                    <button mat-raised-button color="primary" type="submit">Elküld</button>
+                </div>
+            </form>
+        </mat-card-actions>
+    </mat-card>
+
+    <div *ngIf="comments.length">
+
+        <table class="styled-table">
+            <tr>
+                <th>
+                    Felhasználónév
+                </th>
+                <th>
+                    Komment
+                </th>
+                <th>
+                    Dátum
+                </th>
+            </tr>
+            <tr *ngFor="let comment of comments; let i = index"
+                [ngStyle]="{'background-color' : i % 2 === 0 ? 'gray' : 'lightblack'}">
+                <td>
+                    {{comment.username}}
+                </td>
+                <td>
+                    {{comment.comment}}
+                </td>
+                <td>
+                    {{comment.date | dateFormat}}
+                </td>
+            </tr>
+        </table>
+
+    </div>

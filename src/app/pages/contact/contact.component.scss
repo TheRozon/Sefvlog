@@ -1,0 +1,28 @@
+.main_component {
+  height: 100vh;
+}
+
+div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 40%;
+  right: 20px;
+}
+
+mat-card-header {
+  display: initial;
+}
+
+a:link {
+  color: rgb(240, 171, 240);
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: hotpink;
+}

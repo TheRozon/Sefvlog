@@ -1,0 +1,19 @@
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+a:hover,
+a:active {
+    color: whitesmoke;
+}
+
+.nav_bar {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+mat-sidenav {
+    width: 200px;
+}
